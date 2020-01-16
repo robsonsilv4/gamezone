@@ -5,7 +5,7 @@ import React from 'react';
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Text>Página inicial</Text>
+      <Text style={styles.titleText}>Página inicial</Text>
     </View>
   );
 }
@@ -13,5 +13,9 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     padding: 24,
+  },
+  titleText: {
+    fontFamily: 'nunito-bold',
+    fontSize: 18,
   },
 });
