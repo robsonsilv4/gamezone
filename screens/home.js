@@ -1,21 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
+import { globalStyles } from '../styles/global';
 
 export default function Home() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.titleText}>Página inicial</Text>
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.titleText}>Página inicial</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 24,
-  },
-  titleText: {
-    fontFamily: 'nunito-bold',
-    fontSize: 18,
-  },
-});
