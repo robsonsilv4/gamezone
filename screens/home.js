@@ -33,6 +33,7 @@ export default function Home({ navigation }) {
     <View style={globalStyles.container}>
       <FlatList
         data={reviews}
+        // A key precisa ser uma string
         keyExtractor={(_item, index) => index.toString()}
         renderItem={({ item }) => (
           <TouchableOpacity

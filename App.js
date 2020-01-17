@@ -3,7 +3,7 @@ import * as Font from 'expo-font';
 import React, { useState } from 'react';
 
 import { AppLoading } from 'expo';
-import Navigator from './routes/homeStack';
+import Navigator from './routes/drawer';
 
 const getFonts = () =>
   Font.loadAsync({
