@@ -1,11 +1,17 @@
 import About from '../screens/about';
+import { Header } from 'react-native/Libraries/NewAppScreen';
+import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 
 const screens = {
   Home: {
     screen: About,
-    navigationOptions: {
-      title: 'Sobre o GameZone',
+    navigationOptions: ({ navigation }) => {
+      return {
+        headerTitle: () => (
+          <Header navigation={navigation} title="Sobre o GameZone" />
+        ),
+      };
     },
   },
 };
