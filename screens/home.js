@@ -1,8 +1,15 @@
-import { Button, Text, View } from 'react-native';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import {
+  FlatList,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, { useState } from 'react';
 
 import Card from '../shared/card';
+import { MaterialIcons } from '@expo/vector-icons';
 import { globalStyles } from '../styles/global';
 
 export default function Home({ navigation }) {
@@ -29,9 +36,28 @@ export default function Home({ navigation }) {
         'Minecraft é um jogo eletrônico tipo sandbox e independente de mundo aberto que permite a construção usando blocos dos quais o mundo é feito.',
     },
   ]);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <View style={globalStyles.container}>
+      <Modal visible={modalOpen} animationType="slide">
+        <View style={styles.modalContent}>
+          <MaterialIcons
+            name="close"
+            size={24}
+            style={{ ...styles.modalToggle, ...styles.modalClose }}
+            onPress={() => setModalOpen(false)}
+          />
+          <Text>Testando...</Text>
+        </View>
+      </Modal>
+      <MaterialIcons
+        name="add"
+        size={24}
+        style={styles.modalToggle}
+        onPress={() => setModalOpen(true)}
+      />
+
       <FlatList
         data={reviews}
         // A key precisa ser uma string
@@ -51,3 +77,21 @@ export default function Home({ navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  modalToggle: {
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#f2f2f2',
+    padding: 10,
+    borderRadius: 10,
+    alignSelf: 'center',
+  },
+  modalClose: {
+    marginTop: 20,
+    marginBottom: 0,
+  },
+  modalContent: {
+    flex: 1,
+  },
+});
