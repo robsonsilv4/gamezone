@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 
 import Card from '../shared/card';
 import { MaterialIcons } from '@expo/vector-icons';
+import ReviewForm from './reviewForm';
 import { globalStyles } from '../styles/global';
 
 export default function Home({ navigation }) {
@@ -48,7 +49,7 @@ export default function Home({ navigation }) {
             style={{ ...styles.modalToggle, ...styles.modalClose }}
             onPress={() => setModalOpen(false)}
           />
-          <Text>Testando...</Text>
+          <ReviewForm />
         </View>
       </Modal>
       <MaterialIcons
