@@ -1,9 +1,11 @@
 import {
   FlatList,
+  Keyboard,
   Modal,
   StyleSheet,
   Text,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
 } from 'react-native';
 import React, { useState } from 'react';
@@ -39,18 +41,28 @@ export default function Home({ navigation }) {
   ]);
   const [modalOpen, setModalOpen] = useState(false);
 
+  const addReview = review => {
+    review.id = Math.random() * 100;
+    setReviews(currentReviews => {
+      return [...currentReviews, review];
+    });
+    setModalOpen(false);
+  };
+
   return (
     <View style={globalStyles.container}>
       <Modal visible={modalOpen} animationType="slide">
-        <View style={styles.modalContent}>
-          <MaterialIcons
-            name="close"
-            size={24}
-            style={{ ...styles.modalToggle, ...styles.modalClose }}
-            onPress={() => setModalOpen(false)}
-          />
-          <ReviewForm />
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContent}>
+            <MaterialIcons
+              name="close"
+              size={24}
+              style={{ ...styles.modalToggle, ...styles.modalClose }}
+              onPress={() => setModalOpen(false)}
+            />
+            <ReviewForm addReview={addReview} />
+          </View>
+        </TouchableWithoutFeedback>
       </Modal>
       <MaterialIcons
         name="add"
