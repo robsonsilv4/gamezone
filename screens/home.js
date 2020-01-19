@@ -44,7 +44,7 @@ export default function Home({ navigation }) {
   const addReview = review => {
     review.id = Math.random() * 100;
     setReviews(currentReviews => {
-      return [...currentReviews, review];
+      return [review, ...currentReviews];
     });
     setModalOpen(false);
   };
