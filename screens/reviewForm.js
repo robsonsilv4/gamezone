@@ -21,7 +21,7 @@ const reviewSchema = yup.object({
     .required('O avaliação é obrigatória.')
     .test('is-num-5', 'A avaliação deve ser um número entre 1 e 5.', val => {
       return parseInt(val) > 0 && parseInt(val) < 6;
-    }), // O input sempre receberá uma string por padrão
+    }),
 });
 
 export default function ReviewForm({ addReview }) {
@@ -51,6 +51,7 @@ export default function ReviewForm({ addReview }) {
 
             <TextInput
               multiline
+              minHeight={60}
               placeholder="Texto da avaliação"
               onChangeText={props.handleChange('body')}
               value={props.values.body}

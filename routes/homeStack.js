@@ -16,7 +16,7 @@ const screens = {
   ReviewDetails: {
     screen: ReviewDetails,
     navigationOptions: {
-      title: 'Detalhes da avaliação',
+      title: 'Detalhes da Avaliação',
     },
   },
 };
@@ -28,6 +28,7 @@ const HomeStack = createStackNavigator(screens, {
       backgroundColor: '#eee',
       height: 80,
     },
+    headerTitleAlign: 'center',
   },
 });
 

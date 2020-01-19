@@ -6,15 +6,15 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 const RootDrawerNavigator = createDrawerNavigator({
   Home: {
     screen: HomeStack,
-    // navigationOptions: {
-    //   title: 'Inicio',
-    // },
+    navigationOptions: {
+      title: 'Inicio',
+    },
   },
   About: {
     screen: AboutStack,
-    // navigationOptions: {
-    //   title: 'Sobre',
-    // },
+    navigationOptions: {
+      title: 'Sobre',
+    },
   },
 });
 

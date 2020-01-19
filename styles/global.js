@@ -15,7 +15,7 @@ export const globalStyles = StyleSheet.create({
     lineHeight: 20,
   },
   input: {
-    borderRadius: 1,
+    borderWidth: 1,
     borderColor: '#ddd',
     padding: 10,
     fontSize: 18,
@@ -24,7 +24,8 @@ export const globalStyles = StyleSheet.create({
   errorText: {
     color: 'crimson',
     fontWeight: 'bold',
-    marginTop: 10,
+    marginTop: 6,
+    marginBottom: 10,
     textAlign: 'center',
   },
 });

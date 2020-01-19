@@ -51,6 +51,12 @@ export default function Home({ navigation }) {
 
   return (
     <View style={globalStyles.container}>
+      <MaterialIcons
+        name="add"
+        size={24}
+        style={styles.modalToggle}
+        onPress={() => setModalOpen(true)}
+      />
       <Modal visible={modalOpen} animationType="slide">
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.modalContent}>
@@ -64,22 +70,12 @@ export default function Home({ navigation }) {
           </View>
         </TouchableWithoutFeedback>
       </Modal>
-      <MaterialIcons
-        name="add"
-        size={24}
-        style={styles.modalToggle}
-        onPress={() => setModalOpen(true)}
-      />
 
       <FlatList
         data={reviews}
-        // A key precisa ser uma string
-        keyExtractor={(_item, index) => index.toString()}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('ReviewDetails', item);
-            }}
+            onPress={() => navigation.navigate('ReviewDetails', item)}
           >
             <Card>
               <Text style={globalStyles.titleText}>{item.title}</Text>
@@ -98,6 +94,8 @@ const styles = StyleSheet.create({
     borderColor: '#f2f2f2',
     padding: 10,
     borderRadius: 10,
+    // justifyContent: 'center',
+    // alignItems: 'center',
     alignSelf: 'center',
   },
   modalClose: {

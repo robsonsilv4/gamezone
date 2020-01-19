@@ -1,9 +1,16 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import {
+  Dimensions,
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 import { MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
 
-export default function Header({ navigation, title }) {
+export default function Header({ title, navigation }) {
   const openMenu = () => {
     navigation.openDrawer();
   };
@@ -16,8 +23,8 @@ export default function Header({ navigation, title }) {
       <MaterialIcons
         name="menu"
         size={28}
-        style={styles.icon}
         onPress={openMenu}
+        style={styles.icon}
       />
       <View style={styles.headerTitle}>
         <Image
@@ -32,7 +39,7 @@ export default function Header({ navigation, title }) {
 
 const styles = StyleSheet.create({
   header: {
-    width: '100%',
+    width: Dimensions.get('window').width,
     height: '100%',
     flexDirection: 'row',
     alignItems: 'center',
@@ -45,12 +52,11 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   icon: {
-    // position: 'absolute',
-    // left: 16,
+    position: 'absolute',
+    left: 16,
   },
   headerTitle: {
     flexDirection: 'row',
-    marginLeft: 10, // TODO: Centralizar título
   },
   headerImage: {
     width: 26,
