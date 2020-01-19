@@ -73,6 +73,7 @@ export default function Home({ navigation }) {
 
       <FlatList
         data={reviews}
+        keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => navigation.navigate('ReviewDetails', item)}
