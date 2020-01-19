@@ -21,6 +21,12 @@ export const globalStyles = StyleSheet.create({
     fontSize: 18,
     borderRadius: 6,
   },
+  errorText: {
+    color: 'crimson',
+    fontWeight: 'bold',
+    marginTop: 10,
+    textAlign: 'center',
+  },
 });
 
 export const images = {
